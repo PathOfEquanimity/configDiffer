@@ -43,9 +43,9 @@ def diff_line(line1: str, line2: str) -> LineDiff | None:
         if l1 != l2:
             end = i
     if len(line1) != len(line2):
-        end = len(line1) - 1 if line1 > line2 else len(line2) - 1
+        end = len(line1) - 1 if len(line1) > len(line2) else len(line2) - 1
         if start is None:
-            start = len(line2) if line1 > line2 else len(line1)
+            start = len(line2) if len(line1) > len(line2) else len(line1)
     if start is None or end is None:
         return None
     return LineDiff(begin=start, end=end)
